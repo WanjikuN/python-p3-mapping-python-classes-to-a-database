@@ -27,6 +27,8 @@ class TestClass:
             'SELECT * FROM songs WHERE name=? AND album=?',
             ('Hold On', 'Born to Sing')
         ).fetchone()
+        print("db_song:", db_song)
+        assert db_song is not None, "No song found in the database"
         assert(db_song[1] == song.name and db_song[2] == song.album)
 
     def test_creates_and_returns_song(self):
